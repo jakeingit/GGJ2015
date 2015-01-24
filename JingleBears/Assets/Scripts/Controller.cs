@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 
 public class Controller : MonoBehaviour  {
-	public static Controller _instance; 
+	private static Controller _instance; 
+	public static Controller Instance { 
+		get { return _instance; }
+	}
+
 	public StaffController Staff;
 
 	private Song _curSong; 
@@ -16,7 +20,7 @@ public class Controller : MonoBehaviour  {
 	private float _curEnergy; 
 	private float _lastEnergy;
 	public float CurrentEnergy { 
-		get { return (int)_curEnergy; }
+		get { return _curEnergy; }
 	}
 
 	private float _startStartTimeStamp;
@@ -24,8 +28,6 @@ public class Controller : MonoBehaviour  {
 	public float SongPlayTime { 
 		get { return _songTime; }
 	}
-
-
 
 	private bool _songPlaying = false;
 	public bool IsPlaying { 
@@ -102,7 +104,7 @@ public class Controller : MonoBehaviour  {
 		uint curFlag;
 		int numFailNotes = 0;
 		foreach(Note toCheck in _curSong.CurrentNotes) { 
-			if(toCheck.NoteID == _userNoteID) { 
+			if(toCheck.NoteID == _userNoteID && _isUserPlayingNote) { 
 				_curEnergy += Time.deltaTime * kBaseScoreMultiplier * 2f;
 			} else { 
 				numFailNotes++;

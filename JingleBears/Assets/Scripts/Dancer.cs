@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Dancer : MonoBehaviour {
+	public Animator anim;
+
 	public Sprite HeadParent; 
 	public Sprite LeftArm;
 	public Sprite RightArm;
@@ -9,13 +11,20 @@ public class Dancer : MonoBehaviour {
 	public Sprite RightLeg;
 
 
-	// Use this for initialization
-	void Start () {
-	
+	void Start() { 
+		StartCoroutine(CoroutineGoRandom());
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+		anim.SetFloat("Energy", Controller.Instance.CurrentEnergy);
+	}
+
+
+	private IEnumerator CoroutineGoRandom() { 
+		while(true) { 
+			anim.SetTrigger("GoRandom");
+			yield return new WaitForSeconds(Random.Range(10, 30));
+		}
 	}
 }

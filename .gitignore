@@ -1,15 +1,8 @@
-# =============== #
-# Unity generated #
-# =============== #
 [Tt]emp/
 [Oo]bj/
 [Bb]uild
 [Ll]ibrary/
 sysinfo.txt
- 
-# ===================================== #
-# Visual Studio / MonoDevelop generated #
-# ===================================== #
 [Ee]xported[Oo]bj/
 /*.userprefs
 /*.csproj
@@ -19,10 +12,6 @@ sysinfo.txt
 /*.user
 /*.unityproj
 /*.booproj
- 
-# ============ #
-# OS generated #
-# ============ #
 .DS_Store*
 ._*
 .Spotlight-V100
