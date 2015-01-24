@@ -1,13 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NoteView.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FillScreenPlane.cs">
     <Files>
-      <File FileName="Assets/Scripts/Note.cs" Line="17" Column="92" />
-      <File FileName="Assets/Scripts/Song.cs" Line="17" Column="36" />
-      <File FileName="Assets/Scripts/Controller.cs" Line="38" Column="17" />
-      <File FileName="Assets/Scripts/Dancer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StaffController.cs" Line="30" Column="4" />
-      <File FileName="Assets/Scripts/NoteView.cs" Line="22" Column="39" />
+      <File FileName="Assets\Scripts\FillScreenPlane.cs" Line="29" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
