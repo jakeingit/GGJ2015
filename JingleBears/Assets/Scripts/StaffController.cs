@@ -2,16 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
 //This class will read a song and populate the staff with notes from the song
-public class StaffController : MonoBehaviour {
+public class StaffController : MonoBehaviour  {
 	public RectTransform RectStartBar;
 	public Canvas CanvasDynamicNotes; 
 
 	public GameObject ParentNoteView;
 	public GameObject PrefabNoteView;
 
-	public RectTransform PlayingNote;
+	public PlayingNote PlayingNote;
 
 	private Vector3 v3TimeTranslate;
 
@@ -19,14 +18,12 @@ public class StaffController : MonoBehaviour {
 	private List<NoteView> _Notes = new List<NoteView>();
 
 	public static float kSecondWidth = 300f;
-	public static float kHeightOffset = 16;
 	
 	//Every Frame we will move the 
 	void Update() { 
 		//We will move the staff for an amount every frame
 		if(_curSong != null) { 
 			v3TimeTranslate.x = -kSecondWidth * Time.deltaTime * transform.localScale.x;
-			Debug.Log ("TranslateSongBy: " + v3TimeTranslate.x + " DeltaTime: " + Time.deltaTime);
 			ParentNoteView.transform.Translate(v3TimeTranslate);
 		}
 	}
@@ -38,25 +35,12 @@ public class StaffController : MonoBehaviour {
 		foreach(Note toLoad in songToLoad.Notes) { 
 			GameObject newObj = Instantiate(PrefabNoteView) as GameObject;
 			NoteView newView = newObj.GetComponent<NoteView>();
-			newView.transform.SetParent(ParentNoteView.transform);
+			newView.transform.SetParent(ParentNoteView.transform, true);
 			newView.LoadNote(toLoad);
 		}
 
 		_curSong = songToLoad;
 	}
-
-
-	public void ShowPlayingNote(int noteID) { 
-		//Based on the note ID, we will display the activation note
-		PlayingNote.gameObject.SetActive(true);
-		PlayingNote.transform.localPosition = new Vector3(0, StaffController.kHeightOffset * (noteID / 2));
-	}
-
-
-	public void HidePlayingNote() { 
-		PlayingNote.gameObject.SetActive(false);
-	}
-
 
 	public void ResetSong() { 
 		//Reset the note mechanic
