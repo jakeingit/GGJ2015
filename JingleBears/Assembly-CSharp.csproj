@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Controller.cs" />
      <Compile Include="Assets\Scripts\Dancer.cs" />
+     <Compile Include="Assets\Scripts\FillScreenPlane.cs" />
      <Compile Include="Assets\Scripts\Note.cs" />
      <Compile Include="Assets\Scripts\NoteView.cs" />
      <Compile Include="Assets\Scripts\Song.cs" />
