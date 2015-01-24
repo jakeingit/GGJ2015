@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8131b902d48e1be4c96b6c81e29b498e
+guid: b30a7105ee74a4aa09678baf0f7b640e
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
@@ -37,11 +37,11 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 20
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites: []
-  spritePackingTag: Bear
+  spritePackingTag: Staff
   userData: 

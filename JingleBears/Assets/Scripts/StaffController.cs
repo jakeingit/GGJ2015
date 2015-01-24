@@ -11,6 +11,8 @@ public class StaffController : MonoBehaviour {
 	public GameObject ParentNoteView;
 	public GameObject PrefabNoteView;
 
+	public RectTransform PlayingNote;
+
 	private Vector3 v3TimeTranslate;
 
 	private Song _curSong; 
@@ -18,14 +20,13 @@ public class StaffController : MonoBehaviour {
 
 	public static float kSecondWidth = 300f;
 	public static float kHeightOffset = 16;
-
-
-
+	
 	//Every Frame we will move the 
 	void Update() { 
 		//We will move the staff for an amount every frame
 		if(_curSong != null) { 
-			v3TimeTranslate.x = -kSecondWidth * Time.deltaTime;
+			v3TimeTranslate.x = -kSecondWidth * Time.deltaTime * transform.localScale.x;
+			Debug.Log ("TranslateSongBy: " + v3TimeTranslate.x + " DeltaTime: " + Time.deltaTime);
 			ParentNoteView.transform.Translate(v3TimeTranslate);
 		}
 	}
@@ -42,6 +43,18 @@ public class StaffController : MonoBehaviour {
 		}
 
 		_curSong = songToLoad;
+	}
+
+
+	public void ShowPlayingNote(int noteID) { 
+		//Based on the note ID, we will display the activation note
+		PlayingNote.gameObject.SetActive(true);
+		PlayingNote.transform.localPosition = new Vector3(0, StaffController.kHeightOffset * (noteID / 2));
+	}
+
+
+	public void HidePlayingNote() { 
+		PlayingNote.gameObject.SetActive(false);
 	}
 
 
