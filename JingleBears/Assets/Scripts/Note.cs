@@ -21,4 +21,38 @@ public class Note : System.IComparable<Note> {
 	public int CompareTo(Note other) { 
 		return StartTime.CompareTo(other.StartTime);
 	}
+
+	public static string ConvertNoteIDToName(int noteID) { 
+		switch(noteID) { 
+		case 0:
+			return "C";
+		case 2:
+			return "D";
+		case 4:
+			return "E";
+		case 6:
+			return "F";
+		case 8:
+			return "G";
+		case 10:
+			return "A";
+		case 12:
+			return "B";
+		case 14:
+			return "C";
+		case 16:
+			return "D";
+		case 18:
+			return "E";
+		case 20:
+			return "F";
+		case 22:
+			return "G";
+		case 24:
+			return "A";
+		default:
+			return string.Empty;
+		}
+	}
+
 }

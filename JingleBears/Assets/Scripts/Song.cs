@@ -50,7 +50,7 @@ public class Song  {
 		Song retVal = new Song();
 		retVal.Notes.Clear();
 		for(int i = 0; i < 100; i++) { 
-			retVal.Notes.Add(new Note(8, i * 2f + 0.5f, 1.5f));
+			retVal.Notes.Add(new Note(8 + (i % 2) * 8, i * 5f + 0.5f, 1.5f));
 		}
 //		retVal.Notes.Add(new Note(0, 2f, 0.25f));
 //		retVal.Notes.Add(new Note(2, 2.25f, 0.25f));

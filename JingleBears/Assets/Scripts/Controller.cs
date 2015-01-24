@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
-public class Controller : MonoBehaviour {
+
+public class Controller : MonoBehaviour  {
 	public static Controller _instance; 
-
 	public StaffController Staff;
 
 	private Song _curSong; 
@@ -24,17 +25,27 @@ public class Controller : MonoBehaviour {
 		get { return _songTime; }
 	}
 
+
+
 	private bool _songPlaying = false;
 	public bool IsPlaying { 
 		get { return _songPlaying; }
 	}
-
+	
 	private const float kBaseScoreMultiplier = .05f; //100 pts per second of accurate song playing
 
-	private uint _playBitMask; //This is an unsigned int that we can use to track the play bit mask
+	//User Input
+	private int _userNoteID; //This is the note that the user is currently using
+	private int _newUserNote;
+	private int _minNote = 0;
+	private int _maxNote = 24;
+
 
 	public int CurPoints; //How many points has the user accumulated so far
 	public UnityEngine.UI.Slider SliderEnergy; //This is the UI reference to the points that the player currently has
+
+	public PlayingNote UserNote;
+	private bool _isUserPlayingNote = false;
 
 	void Awake() { 
 		//Singleton Check
@@ -47,7 +58,7 @@ public class Controller : MonoBehaviour {
 
 	void Start() { 
 		_curEnergy = _lastEnergy = 0.5f;
-		Staff.HidePlayingNote();
+		UserNote.gameObject.SetActive(false);
 		LoadTestSong();
 	}
 	
@@ -60,47 +71,26 @@ public class Controller : MonoBehaviour {
 	}
 
 	private void HandleInput() { 
-		//Check for Octave Higher
-		int curKey = -1;
-		_playBitMask = 0;
-		if(Input.GetButton("C")) { 
-			_playBitMask = _playBitMask | 1 << 0;
-			curKey = 0;
-		}
-		if(Input.GetButton("D")) { 
-			_playBitMask = _playBitMask | 1 << 2;
-			curKey = 2;
-		} 
-		if(Input.GetButton("E")) { 
-			_playBitMask = _playBitMask | 1 << 4;
-			curKey = 4;
-		}
-		if(Input.GetButton("F")) { 
-			_playBitMask = _playBitMask | 1 << 6;
-			curKey = 6;
-		}
-		if(Input.GetButton("G")) { 
-			_playBitMask = _playBitMask | 1 << 8;
-			curKey = 8;
-		} if(Input.GetButton("A")) { 
-			_playBitMask = _playBitMask | 1 << 10;
-			curKey = 10;
-		} 
-		if(Input.GetButton("B")) { 
-			_playBitMask = _playBitMask | 1 << 12;
-			curKey = 12;
+		//Handle the keyboard input so that we can move up and down the staff
+		_newUserNote = _userNoteID;
+		if(Input.GetButtonDown("NoteDown")) { 
+			//We move up or down the note hierarchy
+			_newUserNote -= 2;
+		} else if(Input.GetButtonDown("NoteUp")) { 
+			_newUserNote += 2;
 		}
 
-		if(curKey >= 0 && Input.GetButton("OctaveHigh")) { 
-			curKey += 16;
-			_playBitMask = _playBitMask ^ 1 << 12;
-		} 
+		//Bounds the user note
+		_newUserNote = Mathf.Clamp(_newUserNote, _minNote, _maxNote);
 
-		if(curKey >= 0) { 
-			Staff.ShowPlayingNote(curKey);
-		} else { 
-			Staff.HidePlayingNote();
+		//Display the user's input note currently
+		if(_newUserNote != _userNoteID) { 
+			Debug.Log ("Showing Note: " + _newUserNote);
+			UserNote.ShowNote(_newUserNote);
+			_userNoteID = _newUserNote;
 		}
+
+		_isUserPlayingNote = Input.GetButton("NoteActivate");
 	}
 
 	//Score points based on the values that are enabled
@@ -112,25 +102,26 @@ public class Controller : MonoBehaviour {
 		uint curFlag;
 		int numFailNotes = 0;
 		foreach(Note toCheck in _curSong.CurrentNotes) { 
-			curFlag = (uint)(1 << toCheck.NoteID);
-			if((curFlag & _playBitMask) != 0) { 
-				_playBitMask = _playBitMask ^ curFlag;
+			if(toCheck.NoteID == _userNoteID) { 
 				_curEnergy += Time.deltaTime * kBaseScoreMultiplier * 2f;
 			} else { 
 				numFailNotes++;
 			}
 		}
 
-		//Determine if we're losing any energy
-		for(int i = 0; i < 32; i++) { 
-			curFlag = (uint)(1 << i); 
-			if((curFlag & _playBitMask) != 0) {
-				numFailNotes++;
-			}
+		if(_curSong.CurrentNotes.Count == 0 && _isUserPlayingNote) { 
+			numFailNotes++;
 		}
 
-		_curEnergy += Time.deltaTime * -kBaseScoreMultiplier * Mathf.Min(numFailNotes, 1) * 0.5f;
+		_curEnergy += Time.deltaTime * -kBaseScoreMultiplier * Mathf.Min(numFailNotes, 1);
 		_curEnergy = Mathf.Clamp01(_curEnergy);
+
+
+		if(_isUserPlayingNote) { 
+			UserNote.ShowPlaying(numFailNotes == 0);
+		} else { 
+			UserNote.StopPlaying();
+		}
 
 		//For every note that we are still playing, we will determine what we gain/lost
 		UpdateEnergy();

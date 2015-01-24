@@ -1,8 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Controller.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StaffController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Controller.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Note.cs" Line="54" Column="24" />
+      <File FileName="Assets/Scripts/Song.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller.cs" Line="84" Column="44" />
+      <File FileName="Assets/Scripts/Dancer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/StaffController.cs" Line="49" Column="55" />
+      <File FileName="Assets/Scripts/NoteView.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/InputArea.cs" Line="9" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
