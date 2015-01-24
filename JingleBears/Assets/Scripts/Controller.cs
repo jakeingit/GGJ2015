@@ -43,11 +43,16 @@ public class Controller : MonoBehaviour  {
 	private int _maxNote = 24;
 
 
+	public AudioSource AudioBG; //This is the BG music that is always playing
+	public AudioSource AudioUser; //This is the user created music that they play along with
+
 	public int CurPoints; //How many points has the user accumulated so far
 	public UnityEngine.UI.Slider SliderEnergy; //This is the UI reference to the points that the player currently has
 
 	public PlayingNote UserNote;
+	public Text TxtPlayingNote;
 	private bool _isUserPlayingNote = false;
+
 
 	void Awake() { 
 		//Singleton Check
@@ -93,6 +98,11 @@ public class Controller : MonoBehaviour  {
 		}
 
 		_isUserPlayingNote = Input.GetButton("NoteActivate");
+		if(_isUserPlayingNote) { 
+			TxtPlayingNote.text = Note.ConvertNoteIDToName(_userNoteID);
+		} else { 
+			TxtPlayingNote.text = string.Empty;
+		}
 	}
 
 	//Score points based on the values that are enabled
