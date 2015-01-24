@@ -25,7 +25,8 @@ public class StaffController : MonoBehaviour {
 	void Update() { 
 		//We will move the staff for an amount every frame
 		if(_curSong != null) { 
-			v3TimeTranslate.x = -Time.deltaTime;
+			v3TimeTranslate.x = -kSecondWidth * Time.deltaTime * transform.localScale.x;
+			Debug.Log ("TranslateSongBy: " + v3TimeTranslate.x + " DeltaTime: " + Time.deltaTime);
 			ParentNoteView.transform.Translate(v3TimeTranslate);
 		}
 	}
