@@ -1,15 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MouseArea.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Song.cs">
     <Files>
       <File FileName="Assets/Scripts/Note.cs" Line="54" Column="24" />
-      <File FileName="Assets/Scripts/Song.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Song.cs" Line="73" Column="43" />
+      <File FileName="Assets/Scripts/Controller.cs" Line="171" Column="20" />
       <File FileName="Assets/Scripts/Dancer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StaffController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/StaffController.cs" Line="20" Column="38" />
       <File FileName="Assets/Scripts/NoteView.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MouseArea.cs" Line="33" Column="4" />
-      <File FileName="Assets/Scripts/PlayingNote.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MouseArea.cs" Line="37" Column="68" />
+      <File FileName="Assets/Scripts/PlayingNote.cs" Line="19" Column="97" />
+      <File FileName="Assets/Scripts/FillScreenPlane.cs" Line="6" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
