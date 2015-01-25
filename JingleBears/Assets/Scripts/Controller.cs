@@ -151,6 +151,7 @@ public class Controller : MonoBehaviour  {
 
 	//Show the main menu
 	public void ShowMainMenu() { 
+		UnloadAudio();
 		EndDialog.HideDialog();
 		MenuMain.ShowMenu();
 	}
@@ -209,7 +210,7 @@ public class Controller : MonoBehaviour  {
 					AudioUser.volume = 1.0f;
 				}
 			} else { 
-				_curEnergy += Time.deltaTime * -kBaseScoreMultiplier * 3f; //DOUBLE the reduction of energy loss
+				_curEnergy += Time.deltaTime * -kBaseScoreMultiplier; //DOUBLE the reduction of energy loss
 			}
 		} else { 
 			UserNote.StopPlaying();
@@ -283,6 +284,9 @@ public class Controller : MonoBehaviour  {
 	}
 
 	private void UnloadAudio() { 
+		AudioBase.Stop();
+		AudioExtra.Stop();
+		AudioUser.Stop();
 		UnloadClipFromAudioSource(AudioBase);
 		UnloadClipFromAudioSource(AudioExtra);
 		UnloadClipFromAudioSource(AudioUser);

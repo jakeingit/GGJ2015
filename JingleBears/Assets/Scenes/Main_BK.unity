@@ -3563,6 +3563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23c2773ec46c4d3f843bdad863bb745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioMusic: {fileID: 0}
 --- !u!225 &415651238
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -11134,6 +11135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1786277868}
+  BadCutoff: .400000006
+  GoodCutoff: .600000024
 --- !u!95 &1786277868
 Animator:
   serializedVersion: 3

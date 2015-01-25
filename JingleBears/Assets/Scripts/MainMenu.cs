@@ -2,11 +2,15 @@
 using System.Collections;
 
 public class MainMenu : MonoBehaviour {
+	public AudioSource AudioMusic;
+
 	public void ShowMenu() { 
 		gameObject.SetActive(true);
+		AudioMusic.Play();
 	}
 
 	public void HideMenu() { 
+		AudioMusic.Stop();
 		gameObject.SetActive(false);
 	}
 
