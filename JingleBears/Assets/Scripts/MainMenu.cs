@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 	public AudioSource AudioMusic;
+	public HelpController TutorialHelp;
 
 	public void ShowMenu() { 
 		gameObject.SetActive(true);
@@ -27,7 +28,7 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	public void OnHelp() { 
-		//Show the help image
+		TutorialHelp.Show();
 	}
 
 	public void OnExit() { 
