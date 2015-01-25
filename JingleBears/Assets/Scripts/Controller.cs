@@ -54,6 +54,8 @@ public class Controller : MonoBehaviour  {
 	public Text TxtPlayingNote;
 	private bool _isUserPlayingNote = false;
 
+	public EnvironmentEnergy Environment;
+
 	public EndGameDialog EndDialog;
 	public MainMenu MenuMain;
 
@@ -97,6 +99,7 @@ public class Controller : MonoBehaviour  {
 		_lastEnergy = 0f;
 		_isUserPlayingNote = false;
 		UpdateActiveNoteText();
+		Environment.ResetEnergy();
 		UpdateEnergyUI();
 		UserNote.gameObject.SetActive(false);
 		AudioUser.loop = AudioBase.loop = AudioExtra.loop = false; 

@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Controller.cs" />
      <Compile Include="Assets\Scripts\Dancer.cs" />
      <Compile Include="Assets\Scripts\EndGameDialog.cs" />
+     <Compile Include="Assets\Scripts\EnvironmentEnergy.cs" />
      <Compile Include="Assets\Scripts\FillScreenPlane.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\MouseArea.cs" />
@@ -57,6 +58,7 @@
      <Compile Include="Assets\Scripts\PlayingNote.cs" />
      <Compile Include="Assets\Scripts\Song.cs" />
      <Compile Include="Assets\Scripts\StaffController.cs" />
+     <None Include="Assets\Font\readme.txt" />
      <None Include="Assets\testmelody.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
