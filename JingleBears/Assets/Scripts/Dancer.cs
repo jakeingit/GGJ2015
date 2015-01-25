@@ -4,12 +4,6 @@ using System.Collections;
 public class Dancer : MonoBehaviour {
 	public Animator anim;
 
-	public Sprite HeadParent; 
-	public Sprite LeftArm;
-	public Sprite RightArm;
-	public Sprite LeftLeg;
-	public Sprite RightLeg;
-
 
 	void Start() { 
 		StartCoroutine(CoroutineGoRandom());
@@ -17,6 +11,7 @@ public class Dancer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
 		anim.SetFloat("Energy", Controller.Instance.CurrentEnergy);
 	}
 

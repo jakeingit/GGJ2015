@@ -30,7 +30,7 @@ public class EnvironmentEnergy : MonoBehaviour {
 		if(_gameController.CurrentEnergy == _lastEnergyCheck) { return; }
 		_newEnvironmentValue = DetermineEnvironmentEnergy(_gameController.CurrentEnergy);
 		if(_newEnvironmentValue != _curEnvironmentValue) { 
-			Debug.Log ("New Environment Value: " + _newEnvironmentValue);
+			//Debug.Log ("New Environment Value: " + _newEnvironmentValue);
 			_curEnvironmentValue = _newEnvironmentValue;
 			if(_curEnvironmentValue < 0) { 
 				SetParticleActive(Positive, 0); //Stop positive effects
@@ -82,7 +82,7 @@ public class EnvironmentEnergy : MonoBehaviour {
 		});
 		
 		int diff = newActive - currentActiveCount;
-		Debug.Log ("Setting NumParticles Active: " + currentActiveCount + " NewActive: " + newActive);
+		//Debug.Log ("Setting NumParticles Active: " + currentActiveCount + " NewActive: " + newActive);
 		//If we have a net increase in particle requests, and we have enough particle systems to activate, pick one at random and activate it. 
 		if(diff > 0 && particles.Count > currentActiveCount) { 
 			List<ParticleSystem> inactiveParticles = particles.FindAll(pSys => { 

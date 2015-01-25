@@ -10,7 +10,7 @@ public class MouseArea : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
 	public bool MouseOver = false;
 	private Vector3 _newPosition;
-	private Vector3 _prevPosition;
+	public Vector3 _prevPosition;
 
 	public void OnPointerEnter(PointerEventData pe) {
 		//Debug.Log("OnPointerEnter");
@@ -27,7 +27,7 @@ public class MouseArea : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 			//Determine which note we're at based on the mouse's position
 			_newPosition = Input.mousePosition;
 			if(_newPosition != _prevPosition) { 
-				//Debug.Log ("New Mouse Over Position: " + Input.mousePosition);
+				Debug.Log ("New Mouse Over Position: " + Input.mousePosition);
 				float mouseY = Input.mousePosition.y;
 				if(mouseY < 40f) { 
 					Controller.Instance.SetUserNote(0);
