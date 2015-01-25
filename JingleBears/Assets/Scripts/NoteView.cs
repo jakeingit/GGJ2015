@@ -24,7 +24,7 @@ public class NoteView : MonoBehaviour {
 		_model = noteToLoad;
 		//Based on the duration we will load the distance, and position
 		_rectTrans.localScale = Vector3.one;
-		_rectTrans.localPosition = new Vector3(StaffController.kSecondWidth * noteToLoad.StartTime, noteToLoad.NoteID > 14 ? kOctaveOffset * 4 : kOctaveOffset);
+		_rectTrans.localPosition = new Vector3(StaffController.kSecondWidth * noteToLoad.StartTime, noteToLoad.NoteID >= 14 ? kOctaveOffset * 4 : kOctaveOffset);
 		_rectTrans.sizeDelta = new Vector2(StaffController.kSecondWidth * noteToLoad.Duration, _rectTrans.sizeDelta.y);
 		TxtLeft.text = TxtRight.text = Note.ConvertNoteIDToName(noteToLoad.NoteID);
 	}

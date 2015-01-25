@@ -65,19 +65,30 @@ public class Song  {
 		//G-22
 		//A-24
 
-		retVal.Notes.Add(new Note(18, 0f, 1.13f));
-		retVal.Notes.Add(new Note(8, 1.33f, 1.133f));
-		retVal.Notes.Add(new Note(14, 2.66f, 0.466f));
-		retVal.Notes.Add(new Note(12, 3.33f, 0.466f));
-		retVal.Notes.Add(new Note(4, 4f, 0.466f));
-		retVal.Notes.Add(new Note(8, 4.666f, 0.466f));
-//		retVal.Notes.Add(new Note(4, 6.21f, 0.04f));
-//		retVal.Notes.Add(new Note(2, 7.08f, 0.04f));
-//		retVal.Notes.Add(new Note(4, 7.12f, 0.04f));
-//		retVal.Notes.Add(new Note(2, 2.25f, 0.25f));
-//		retVal.Notes.Add(new Note(4, 2.5f, 0.25f));
-//		retVal.Notes.Add(new Note(6, 2.75f, 0.25f));
-//		retVal.Notes.Add(new Note(8, 3f, 1.0f));
+		retVal.Notes.Add(new Note(18, 5.333f, 2.33f));
+		retVal.Notes.Add(new Note(8, 8f, 2.33f));
+		retVal.Notes.Add(new Note(14, 10.66f, 2.33f));
+		retVal.Notes.Add(new Note(12, 13.33f, 2.33f));
+		retVal.Notes.Add(new Note(4, 16f, 2.33f));
+		retVal.Notes.Add(new Note(8, 18.66f, 2.33f));
+		retVal.Notes.Add(new Note(18, 21.33f, 2.33f));
+		retVal.Notes.Add(new Note(14, 24f, 2.33f));
+		retVal.Notes.Add(new Note(8, 26.66f, 2.33f));
+		retVal.Notes.Add(new Note(18, 29.33f, 2.33f));
+		retVal.Notes.Add(new Note(10, 32f, 2.33f));
+		retVal.Notes.Add(new Note(4, 34.66f, 2.33f));
+		retVal.Notes.Add(new Note(18, 37.33f, 2.33f));
+		retVal.Notes.Add(new Note(14, 40f, 2.33f));
+		retVal.Notes.Add(new Note(24, 42.33f, 2.33f));
+		retVal.Notes.Add(new Note(18, 45.33f, 2.33f));
+		retVal.Notes.Add(new Note(22, 48f, 2.33f));
+		retVal.Notes.Add(new Note(16, 50.66f, 2.33f));
+		retVal.Notes.Add(new Note(4, 53.33f, 2.33f));
+		retVal.Notes.Add(new Note(10, 56f, 2.33f));
+		retVal.Notes.Add(new Note(16, 58.66f, 2.33f));
+		retVal.Notes.Add(new Note(18, 61.33f, 2.33f));
+		retVal.Notes.Add(new Note(14, 64f, 2.33f));
+		retVal.Notes.Add(new Note(8, 66.66f, 2.33f));
 		retVal.Notes.Sort();
 		retVal.BPM = 80;
 		retVal._curNoteOffsetIndex = 0;
