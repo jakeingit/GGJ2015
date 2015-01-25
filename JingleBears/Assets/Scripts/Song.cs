@@ -26,7 +26,6 @@ public class Song  {
 		//Clear any active notes that are no longer playing
 		_curNotes.RemoveWhere(item => { 
 			if(item.StartTime + item.Duration < curSongTime) { 
-				Debug.Log("Removing Note: " + item);
 				return true;
 			}
 			return false;
@@ -37,7 +36,6 @@ public class Song  {
 			curNote = Notes[i];
 			if(curNote.StartTime < curSongTime) { 
 				if(curNote.StartTime + curNote.Duration > curSongTime) { 
-					Debug.Log ("Adding Note: " + curNote);
 					_curNotes.Add(curNote);
 				}
 				_curNoteOffsetIndex = i + 1; //This is now the index that we are offset by
@@ -49,10 +47,33 @@ public class Song  {
 	public static Song CreateTestSong() { 
 		Song retVal = new Song();
 		retVal.Notes.Clear();
-		for(int i = 0; i < 100; i++) { 
-			retVal.Notes.Add(new Note(8 + (i % 2) * 8, i * 5f + 0.5f, 1.5f));
-		}
-//		retVal.Notes.Add(new Note(0, 2f, 0.25f));
+//		for(int i = 0; i < 100; i++) { 
+//			retVal.Notes.Add(new Note(8 + (i % 2) * 8, i * 5f + 0.5f, 1.5f));
+//		}
+
+		//C-0
+		//D-2
+		//E-4
+		//F-6
+		//G-8
+		//A-10
+		//B-12
+		//C-14
+		//D-16
+		//E-18
+		//F-20
+		//G-22
+		//A-24
+
+		retVal.Notes.Add(new Note(18, 0f, 1.13f));
+		retVal.Notes.Add(new Note(8, 1.33f, 1.133f));
+		retVal.Notes.Add(new Note(14, 2.66f, 0.466f));
+		retVal.Notes.Add(new Note(12, 3.33f, 0.466f));
+		retVal.Notes.Add(new Note(4, 4f, 0.466f));
+		retVal.Notes.Add(new Note(8, 4.666f, 0.466f));
+//		retVal.Notes.Add(new Note(4, 6.21f, 0.04f));
+//		retVal.Notes.Add(new Note(2, 7.08f, 0.04f));
+//		retVal.Notes.Add(new Note(4, 7.12f, 0.04f));
 //		retVal.Notes.Add(new Note(2, 2.25f, 0.25f));
 //		retVal.Notes.Add(new Note(4, 2.5f, 0.25f));
 //		retVal.Notes.Add(new Note(6, 2.75f, 0.25f));

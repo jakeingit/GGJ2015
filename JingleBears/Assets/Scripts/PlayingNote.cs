@@ -16,8 +16,8 @@ public class PlayingNote : MonoBehaviour {
 
 	public void ShowNote(int noteID) { 
 		gameObject.SetActive(true);
-		ImageBar.gameObject.SetActive(noteID % 4 == 0);
-		_ourTrans.anchoredPosition = new Vector3(-80, 30 + OffsetY * noteID / 2);
+		ImageBar.gameObject.SetActive(noteID == Controller.MinNoteID || noteID == Controller.MaxNoteID);
+		_ourTrans.anchoredPosition = new Vector3(-80, 28 + OffsetY * noteID / 2);
 		//TODO: Flip the note on higher notes
 	}
 

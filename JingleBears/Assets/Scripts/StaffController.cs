@@ -20,7 +20,7 @@ public class StaffController : MonoBehaviour  {
 	public static float kSecondWidth = 300f;
 	
 	//Every Frame we will move the 
-	void Update() { 
+	public void UpdateStaff() { 
 		//We will move the staff for an amount every frame
 		if(_curSong != null) { 
 			v3TimeTranslate.x = -kSecondWidth * Time.deltaTime * transform.localScale.x;
