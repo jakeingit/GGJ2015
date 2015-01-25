@@ -17150,6 +17150,24 @@ Prefab:
       propertyPath: m_Name
       value: Dancer
       objectReference: {fileID: 0}
+    - target: {fileID: 21245840, guid: 2dafb899d4d54b943af7ced65d6b85e3, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 692f97ca0dfbd0443ab054422f72e91d,
+        type: 3}
+    - target: {fileID: 21245838, guid: 2dafb899d4d54b943af7ced65d6b85e3, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cf8c4d55ff008e5469d9fe3f695c6257,
+        type: 3}
+    - target: {fileID: 445836, guid: 2dafb899d4d54b943af7ced65d6b85e3, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 445836, guid: 2dafb899d4d54b943af7ced65d6b85e3, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dafb899d4d54b943af7ced65d6b85e3, type: 2}
   m_RootGameObject: {fileID: 50803484}
