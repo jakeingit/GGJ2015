@@ -29,6 +29,7 @@ public class StaffController : MonoBehaviour  {
 	}
 
 	public void LoadSong(Song songToLoad) { 
+		ResetSong();
 		//We will clear all of our current note views, and then we will read the song data to populate all of the notes that we need to
 		_Notes.Clear();
 		//Create enough note views for each fo the notes that we need to display 
@@ -44,7 +45,7 @@ public class StaffController : MonoBehaviour  {
 
 	public void ResetSong() { 
 		//Reset the note mechanic
-		ParentNoteView.transform.localPosition = new Vector3(RectStartBar.rect.width, 0);
+		ParentNoteView.GetComponent<RectTransform>().anchoredPosition = new Vector2(264, 0);
 	}
 
 }

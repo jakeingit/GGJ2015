@@ -16,6 +16,8 @@ public class Song  {
 
 	public void ResetSongProgression() { 
 		_curNoteOffsetIndex = 0; //Start at the beginning when searching
+		UpdateSongTime(0);
+		_curNotes.Clear();
 	}
 
 	//This is the song's update mechanic allowing us to update the song's notes to be set to a current time
@@ -44,7 +46,7 @@ public class Song  {
 	}
 
 	//Factory method that is used to create the test song that we will be usign for testing purposes
-	public static Song CreateTestSong() { 
+	public static Song CreateSong1() { 
 		Song retVal = new Song();
 		retVal.Notes.Clear();
 //		for(int i = 0; i < 100; i++) { 
@@ -78,7 +80,7 @@ public class Song  {
 		retVal.Notes.Add(new Note(10, 32f, 2.33f));
 		retVal.Notes.Add(new Note(4, 34.66f, 2.33f));
 		retVal.Notes.Add(new Note(18, 37.33f, 2.33f));
-		retVal.Notes.Add(new Note(14, 40f, 2.33f));
+		retVal.Notes.Add(new Note(14, 40f, 2.0f));
 		retVal.Notes.Add(new Note(24, 42.33f, 2.33f));
 		retVal.Notes.Add(new Note(18, 45.33f, 2.33f));
 		retVal.Notes.Add(new Note(22, 48f, 2.33f));
