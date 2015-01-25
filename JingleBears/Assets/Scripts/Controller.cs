@@ -115,6 +115,7 @@ public class Controller : MonoBehaviour  {
 		}
 
 		if(Input.GetButtonDown("Cancel")) { 
+			_songPlaying = false;
 			ShowMainMenu();
 			return;
 		}

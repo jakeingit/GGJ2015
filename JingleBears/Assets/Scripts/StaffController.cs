@@ -30,6 +30,11 @@ public class StaffController : MonoBehaviour  {
 
 	public void LoadSong(Song songToLoad) { 
 		ResetSong();
+
+		foreach(NoteView toDestroy in _Notes) { 
+			Destroy(toDestroy.gameObject);
+		}
+
 		//We will clear all of our current note views, and then we will read the song data to populate all of the notes that we need to
 		_Notes.Clear();
 		//Create enough note views for each fo the notes that we need to display 
@@ -38,6 +43,7 @@ public class StaffController : MonoBehaviour  {
 			NoteView newView = newObj.GetComponent<NoteView>();
 			newView.transform.SetParent(ParentNoteView.transform, true);
 			newView.LoadNote(toLoad);
+			_Notes.Add(newView);
 		}
 
 		_curSong = songToLoad;
