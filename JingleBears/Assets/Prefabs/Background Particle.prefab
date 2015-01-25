@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 428124}
   - 198: {fileID: 19828124}
   - 199: {fileID: 19928124}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 428126}
   - 198: {fileID: 19828126}
   - 199: {fileID: 19928126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128124}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.39999962, y: -.300000012, z: 24.1000004}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children:
   - {fileID: 428126}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.46599996, y: 0, z: 0}
   m_LocalScale: {x: 1, y: .999999762, z: .999999762}
   m_Children: []
   m_Father: {fileID: 428124}
@@ -307,11 +307,11 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 4
+    type: 5
     radius: 1
     angle: 25
     length: 5
-    boxX: 1
+    boxX: 4
     boxY: 1
     boxZ: 1
     placementMode: 0
