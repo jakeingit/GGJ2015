@@ -127,7 +127,7 @@ public class Controller : MonoBehaviour  {
 	public void SetUserNote(int newNote) { 
 		//Display the user's input note currently
 		if(newNote != _userNoteID) { 
-			Debug.Log ("Showing Note: " + newNote);
+			//Debug.Log ("Showing Note: " + newNote);
 			UserNote.ShowNote(newNote);
 			_userNoteID = newNote;
 			if(_isUserPlayingNote) { 
