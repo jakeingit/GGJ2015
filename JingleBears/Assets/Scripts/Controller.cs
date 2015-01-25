@@ -42,7 +42,6 @@ public class Controller : MonoBehaviour  {
 	public static int MinNoteID = 0;
 	public static int MaxNoteID = 24;
 
-
 	public AudioSource AudioBase; //This is the BG music that is always playing
 	public AudioSource AudioUser; //This is the user created music that they play along with
 	public AudioSource AudioExtra; //This is the audio source that triggers when the player is doing very well
@@ -115,6 +114,11 @@ public class Controller : MonoBehaviour  {
 			_newUserNote += 2;
 		}
 
+		if(Input.GetButtonDown("Cancel")) { 
+			ShowMainMenu();
+			return;
+		}
+
 		//Bounds the user note
 		_newUserNote = Mathf.Clamp(_newUserNote, MinNoteID, MaxNoteID);
 		SetUserNote(_newUserNote);
@@ -151,13 +155,18 @@ public class Controller : MonoBehaviour  {
 
 	//Show the main menu
 	public void ShowMainMenu() { 
+		if(_curSong != null) {
+			AudioSFx.PlayClick();
+		}
 		UnloadAudio();
 		EndDialog.HideDialog();
 		MenuMain.ShowMenu();
+		ResetGame();
 	}
 
 	//From the end game dialog, restart the same song
 	public void RestartSong() { 
+		AudioSFx.PlayClick();
 		ResetGame();
 		EndDialog.HideDialog();
 		Staff.ResetSong();
@@ -173,6 +182,7 @@ public class Controller : MonoBehaviour  {
 	}
 
 	private void WinGame() { 
+		AudioSFx.PlayWin();
 		//Then we will just play all of the AudioSources on repeat
 		AudioBase.loop = AudioUser.loop = AudioExtra.loop = true;
 		AudioBase.Play();
@@ -241,12 +251,10 @@ public class Controller : MonoBehaviour  {
 	}
 
 	private void GameOver() {
+		AudioSFx.PlayLose();
 		_songPlaying = false;
 		StopAllCoroutines();
-		AudioBase.Stop();
-		AudioExtra.Stop();
-		AudioUser.Stop();
-		EndDialog.ShowDialog("Game Over");
+		StartCoroutine(CoroutineWaitAndShowGameOverDialog());
 	}
 
 	private void UpdateEnergyUI() { 
@@ -272,10 +280,10 @@ public class Controller : MonoBehaviour  {
 		ResetGame();
 		//Create a temporary song
 		UnloadAudio();
-		AudioBase.clip = Resources.Load<AudioClip>("Audio/Song1_Base");
-		AudioUser.clip = Resources.Load<AudioClip>("Audio/Song1_User");
-		AudioExtra.clip = Resources.Load<AudioClip>("Audio/Song1_Extra");
-		_curSong = Song.CreateSong1();
+		AudioBase.clip = Resources.Load<AudioClip>("Audio/Song2_Base");
+		AudioUser.clip = Resources.Load<AudioClip>("Audio/Song2_User");
+		AudioExtra.clip = null;
+		_curSong = Song.CreateSong2();
 		Staff.LoadSong(_curSong); //Load up all of the song notes into the UI
 	}
 
@@ -296,6 +304,14 @@ public class Controller : MonoBehaviour  {
 		AudioClip clipToUnload = sourceToUnload.clip;
 		sourceToUnload.clip = null;
 		Resources.UnloadAsset(clipToUnload);
+	}
+
+	private IEnumerator CoroutineWaitAndShowGameOverDialog() {
+		yield return new WaitForSeconds(2f);
+		AudioBase.Stop();
+		AudioExtra.Stop();
+		AudioUser.Stop();
+		EndDialog.ShowDialog("Game Over");
 	}
 
 	private IEnumerator CoroutineWaitAndStartSong() { 

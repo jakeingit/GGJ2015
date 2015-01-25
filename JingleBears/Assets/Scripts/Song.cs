@@ -49,24 +49,6 @@ public class Song  {
 	public static Song CreateSong1() { 
 		Song retVal = new Song();
 		retVal.Notes.Clear();
-//		for(int i = 0; i < 100; i++) { 
-//			retVal.Notes.Add(new Note(8 + (i % 2) * 8, i * 5f + 0.5f, 1.5f));
-//		}
-
-		//C-0
-		//D-2
-		//E-4
-		//F-6
-		//G-8
-		//A-10
-		//B-12
-		//C-14
-		//D-16
-		//E-18
-		//F-20
-		//G-22
-		//A-24
-
 		retVal.Notes.Add(new Note(18, 5.333f, 2.33f));
 		retVal.Notes.Add(new Note(8, 8f, 2.33f));
 		retVal.Notes.Add(new Note(14, 10.66f, 2.33f));
@@ -95,5 +77,72 @@ public class Song  {
 		retVal.BPM = 80;
 		retVal._curNoteOffsetIndex = 0;
 		return retVal;
+	}
+
+	public static Song CreateSong2() { 
+		Song retVal = new Song();
+		retVal.Notes.Clear();
+		//C-0
+		//D-2
+		//E-4
+		//F-6
+		//G-8
+		//A-10
+		//B-12
+		//C-14
+		//D-16
+		//E-18
+		//F-20
+		//G-22
+		//A-24
+		retVal.Notes.Add(new Note(10, 3f, 1f));
+		retVal.Notes.Add(new Note(14, 4.5f, 1f));
+		retVal.Notes.Add(new Note(8, 6f, 1f));
+		retVal.Notes.Add(new Note(4, 7.5f, 1f));
+		retVal.Notes.Add(new Note(6, 9f, 1f));
+		retVal.Notes.Add(new Note(10, 10.5f, 1f));
+		retVal.Notes.Add(new Note(16, 12f, 1f));
+		retVal.Notes.Add(new Note(24, 13.5f, 1f));
+		retVal.Notes.Add(new Note(10, 15f, 1f));
+		retVal.Notes.Add(new Note(14, 16.5f, 1f));
+		retVal.Notes.Add(new Note(16, 18f, 1f));
+		retVal.Notes.Add(new Note(8, 19.5f, 1f));
+		retVal.Notes.Add(new Note(6, 21f, 1f));
+		retVal.Notes.Add(new Note(2, 22.5f, 1f));
+		retVal.Notes.Add(new Note(8, 24f, 1f));
+		retVal.Notes.Add(new Note(6, 25.5f, 1f));
+		retVal.Notes.Add(new Note(8, 27f, 1f));
+		retVal.Notes.Add(new Note(12, 28.5f, 1f));
+		retVal.Notes.Add(new Note(14, 30f, 1f));
+		retVal.Notes.Add(new Note(18, 31.5f, 1f));
+		retVal.Notes.Add(new Note(8, 33f, 1f));
+		retVal.Notes.Add(new Note(4, 34.5f, 1f));
+		retVal.Notes.Add(new Note(0, 36f, 1f));
+		retVal.Notes.Add(new Note(8, 37.5f, 1f));
+		retVal.Notes.Add(new Note(10, 39f, 2.5f));
+		retVal.Notes.Add(new Note(10, 42f, 1f));
+		retVal.Notes.Add(new Note(8, 43.5f, 1f));
+		retVal.Notes.Add(new Note(2, 45f, 1f));
+		retVal.Notes.Add(new Note(6, 46.5f, 1f));
+		retVal.Notes.Add(new Note(4, 48f, 1f));
+		retVal.Notes.Add(new Note(2, 49.5f, 1f));
+		retVal.Notes.Add(new Note(10, 51f, 1f));
+		retVal.Notes.Add(new Note(20, 52.5f, 1f));
+		retVal.Notes.Add(new Note(18, 54f, 1f));
+		retVal.Notes.Add(new Note(22, 55.5f, 1f));
+		retVal.Notes.Add(new Note(24, 57f, 1f));
+		retVal.Notes.Add(new Note(16, 58.5f, 1f));
+		retVal.Notes.Add(new Note(8, 60f, 1f));
+		retVal.Notes.Add(new Note(10, 61.5f, 1f));
+		retVal.Notes.Add(new Note(10, 63f, 1f));
+		retVal.Notes.Add(new Note(14, 64.5f, 1f));
+		retVal.Notes.Add(new Note(6, 66f, 1f));
+		retVal.Notes.Add(new Note(2, 67.5f, 1f));
+
+		retVal.Notes.Sort();
+		retVal.BPM = 120;
+		retVal._curNoteOffsetIndex = 0;
+		return retVal;
+
 	}
 }

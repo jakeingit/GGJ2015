@@ -35,7 +35,7 @@ public class Dancer : MonoBehaviour {
 				anim.SetTrigger("GoPositive");
 				break;
 			case DancerStates.Dead:
-				anim.SetTrigger("GoNeutral");
+				anim.SetTrigger("GoDead");
 				break;
 			}
 			_curState = _newState;
@@ -43,7 +43,9 @@ public class Dancer : MonoBehaviour {
 	}
 
 	private DancerStates GetStateForEnergy(float curEnergy) { 
-		if(curEnergy < BadCutoff) { 
+		if(Mathf.Approximately(curEnergy, 0f)) { 
+			return DancerStates.Dead;
+		} else if(curEnergy < BadCutoff) { 
 			return DancerStates.Bad;
 		} if(curEnergy > GoodCutoff) { 
 			return DancerStates.Good;

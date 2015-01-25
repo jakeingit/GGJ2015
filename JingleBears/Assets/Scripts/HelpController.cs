@@ -22,16 +22,19 @@ public class HelpController : MonoBehaviour {
 	}
 
 	public void Hide() { 
+		AudioSFx.PlayClick();
 		gameObject.SetActive(false);
 	}
 
 	public void NextPage() { 
+		AudioSFx.PlayClick();
 		_curPage = Mathf.Min(kMaxPageID, ++_curPage);
 		UpdateArrows();
 		LoadPage(_curPage);
 	}
 
 	public void PrevPage() { 
+		AudioSFx.PlayClick();
 		_curPage = Mathf.Max(kMinPageID, --_curPage);
 		UpdateArrows();
 		LoadPage(_curPage);
@@ -49,8 +52,7 @@ public class HelpController : MonoBehaviour {
 
 	private void LoadPage(int pageToLoad) { 
 		Texture curTex = TexTutorial.texture;
-		//Resources.UnloadAsset(curTex);
+		Resources.UnloadAsset(curTex);
 		TexTutorial.texture = Resources.Load<Texture>(string.Format("Tutorial/tutorial{0}", _curPage));
-		Debug.Log("Loading Tutorial: " + string.Format("Tutorial/tutorial{0}", _curPage));
 	}
 }
