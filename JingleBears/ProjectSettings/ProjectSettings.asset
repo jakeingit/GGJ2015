@@ -67,7 +67,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.Company.ProductName
+  iPhoneBundleIdentifier: com.GlobalGameJamMN.Jinglebears
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 13931e9036f744273a58c24377df2309
@@ -247,12 +247,6 @@ PlayerSettings:
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
   stvDeviceAddress: 
-  wp8UnprocessedPlugins: []
-  intPropertyNames:
-  - iOS::Architecture
-  - iOS::ScriptingBackend
-  iOS::Architecture: 2
-  iOS::ScriptingBackend: 0
   firstStreamedLevelWithResources: 0
   unityRebuildLibraryVersion: 9
   unityForwardCompatibleVersion: 39
